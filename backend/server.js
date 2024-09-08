@@ -7,6 +7,7 @@ const cors = require('cors')
 const app = express();
 app.use(express.json());
 app.use(cors());
+// app.use("/",router);
 //routes
 // app.use()
 
@@ -14,6 +15,10 @@ app.get('/',(req,res)=>{
     res.json('hello world');
 })
 
+// app.use((req, res, next) => {
+//     console.log(req.path, req.method)
+//     next()
+//   })
 app.use('/api/workouts',workoutRoutes);
 
 //mongoose connect to db 

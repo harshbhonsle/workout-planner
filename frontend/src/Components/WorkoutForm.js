@@ -7,12 +7,13 @@ const WorkoutForm =()=>{
     const [load,setLoad] = useState('');
     const [reps,setReps] = useState('');
     const [error,setError] = useState(null)
+    // function to handle submit
     const handleSubmit=async (e)=>{
         e.preventDefault();
 
         const workout = {title,load,reps}
         
-        const response = await fetch ('/api/workouts',{
+        const response = await fetch ('http://localhost:4000/api/workouts',{
             method:'POST',
             body: JSON.stringify(workout),
             headers:{
