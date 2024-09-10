@@ -7,7 +7,7 @@ import WorkoutForm from '../Components/WorkoutForm';
 
 const Home = () => {
     const {workouts,dispatch} = useWorkoutsContext()
-    // const [workouts, setWorkouts] = useState(null);
+   
 
     useEffect(() => {
 
@@ -20,7 +20,7 @@ const Home = () => {
             }
         }
         fetchWorkouts()
-    }, [])
+    }, [dispatch])
 
     return (
         <div className='home'>
