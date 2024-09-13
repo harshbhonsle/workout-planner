@@ -21,7 +21,7 @@ app.get('/',(req,res)=>{
 //     next()
 //   })
 app.use('/api/workouts',workoutRoutes);
-app.use('/api/user',userRoutesRoutes);
+// app.use('/api/user',userRoutesRoutes);
 
 //mongoose connect to db 
 mongoose.connect(process.env.MONG_URL)
