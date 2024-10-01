@@ -9,5 +9,5 @@ const router = express.Router()
 router.post('/login',loginUser)
 
 // signup rputer
-router.post('/signup',signupUser)
+router.post('/signup',signupUser) // post because we will be sending data to login 
 module.exports = router
