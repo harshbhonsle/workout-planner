@@ -4,6 +4,7 @@ const mongoose = require('mongoose')
 // to get single workout
 
 const getWorkout = async(req,res)=>{
+    const {user_id} = req.user._id
     const {id} = req.params;
 
     if(!mongoose.Types.ObjectId.isValid(id)){
@@ -22,7 +23,7 @@ const getWorkout = async(req,res)=>{
 
 //to get all orkout
 const getWorkouts = async(req,res)=>{
-    const workouts = await Workout.find({}).sort({createAt:-1})
+    const workouts = await Workout.find({user_id}).sort({createAt:-1})
     res.status(200).json(workouts);
 }
 
@@ -50,7 +51,8 @@ const createWorkout = async(req,res)=>{
 
     // add doc to db 
     try{
-        const workout = await Workout.create({title,load,reps})
+        const user_id = req.user._id
+        const workout = await Workout.create({title,load,reps,user_id})
         res.status(200).json(workout);
     }
     catch(error){
